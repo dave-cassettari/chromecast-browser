@@ -5,13 +5,21 @@
 	<title>Chromcast Browser</title>
 
 	<script type="text/javascript" src="scripts/vendor/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="scripts/vendor/knockout-3.4.0.js"></script>
+	<script type="text/javascript" src="scripts/vendor/knockout-secure-binding-0.5.5.min.js"></script>
 	<script type="text/javascript" src="scripts/channels.js"></script>
 	<script type="text/javascript" src="scripts/app.js"></script>
 
 </head>
 <body>
 
-	<div>Hello, world updated more</div>
+	<span data-bind="text: channels().length">&nbsp;</span>
+
+	<div class="channel" data-bind="foreach: channels">
+		<div class="channel-name" data-bind="text: title">
+
+		</div>
+	</div>
 
 </body>
 </html>

@@ -41,12 +41,10 @@ $(function() {
 						time = programme.find('.time').text().trim(),
 						date = new Date(currentDate.valueOf());//new Date(year, month, day, time.substring(0, 2), time.substring(3, 2))
 
-					console.log(time);
-					console.log(time.substring(0, 2));
-					console.log(time.substring(3, 6));
-
 					date.setDate(date.getDate() + channelIndex);
-					date.setHours(15);
+					date.setHours(time.substring(0, 2));
+					date.setMinutes(time.substring(3, 6));
+					date.setSeconds(0);
 
 					console.log(date);
 
@@ -66,4 +64,19 @@ $(function() {
 
 		loadProgrammes(channel.title, currentDate);
 	}
+
+	var viewModel = {
+	    channels: ko.observableArray(channels),
+	};
+
+	var bindingOptions = {
+		globals: window,
+		bindings: ko.bindingHandlers,
+		attribute: "data-bind",
+		noVirtualElements: false
+	};
+
+	ko.bindingProvider.instance = new ko.secureBindingsProvider(bindingOptions);
+
+	ko.applyBindings(viewModel);
 });
