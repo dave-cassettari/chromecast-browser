@@ -1,0 +1,13 @@
+{
+  "name": "Chromecast Browser",
+  "description": "Use Chrome as a TV guide for your Chromecast",
+  "version": "0.1",
+  "manifest_version": 2,
+  "permissions": ["<all_urls>"],
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "icons": { "16": "images/icon-16.png", "128": "images/icon-128.png" }
+}
